@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>portfolio</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/konpa/devicon@master/devicon.min.css">
+  <!-- <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css"> -->
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+
+  /* 入り始め */
+  .v-enter {
+    transform: translate(-150px, 0);
+    opacity: 0;
+  }
+  /* 入り終わり */
+  .v-enter-to {
+    opacity: 1;
+  }
+  /* 入り最中 */
+  .v-enter-active {
+    transition: all 1s .3s ease;
+  }
+  /* 去り始め */
+  .v-leave {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  /* 去り終わり */
+  .v-leave-to {
+    transform: translate(-150px, 0);
+    opacity: 0;
+  }
+  /* 去り最中 */
+  .v-leave-active {
+    transition: all .5s 0s ease;
+  }
+
+  </style>
+
+</head>
+<body>
+
+  <div id="app">
+    <nav class="navbar navbar-expand  navbar-dark fixed-bottom">
+      <router-link to="/" class="nav-text">Top</router-link>
+      <router-link to="/profile" class="nav-text">Profile</router-link>
+      <router-link to="/study" class="nav-text">Study</router-link>
+      <router-link to="/made" class="nav-text">Made</router-link>
+      <router-link to="/contact" class="nav-text">contact</router-link>
+    </nav>
+    <transition>
+      <router-view></router-view>
+    </transition>
+  </div>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+<script src="https://unpkg.com/vue@2.5.17"></script>
+<script src="https://unpkg.com/vue-router@3.0.1"></script>
+
+<script type="text/x-template" id="top-page">
+  <div class="page1" id="page1">
+    <div class="top-message">
+      <div class="top-main-message">
+        <h1 class="message-one inview-from-the-left">Welcome</h1>
+        <h1 class="message-two inview-from-the-bottom">My Page!</h1>
+      </div>
+      <div class="top-sab-maessage inview-from-the-bottom-delay">
+        <h4>I want to be a game creator or</h4>
+        <h4>Front-end engineer</h4>
+      </div>
+      <div class="sns-icons inview-from-the-top-bounce">
+        <a :href="twitterPath" target="_blank">
+          <i class="devicon-twitter-plain colored twitter-icon"></i>
+        </a>
+        <a :href="gitPath" target="_blank">
+          <i class="devicon-github-plain colored git-icon"></i>
+        </a>
+        <a :href="blogPath" target="_blank">
+          <i class="devicon-wordpress-plain colored blog-icon"></i>
+        </a>
+        <a :href="qiitaPath" target="_blank">
+          <i class="qiita-icon" style="color: #59bb0c;">Qiita</i>
+        </a>
+      </div>
+      <p class="copylight inview-from-the-bottom-delay">&copy;2020 sukeo</p>
+      <h1 class="convery-message inview-from-the-bottom-delay">I like making things</h1>
+    </div>
+  </div>
+</script>
+
+<script type="text/x-template" id="profile-page">
+  <div class="page2" id="page2">
+    <h1>Profile</h1>
+    <p class="border-b inview-from-the-left"></p>
+    <img src="./assets/face.jpg" alt="" class="face">
+    <div class="names">
+      <h2 class="initial">Y</h2>
+      <h2 class="name">usuke<br><span>N</span>agaya</h2>
+    </div>
+    <ul>
+      <li>
+        {{ `出身 : ${profiles.from}` }}
+      </li><br>
+      <li>
+      {{ `好きな言葉 :${profiles.favoriteWord}` }}
+      </li>
+      <li>
+      {{ profiles.message }}
+      </li>
+    </ul>
+  </div>
+</script>
+
+<script type="text/x-template" id="study-page">
+  <div class="page3" id="page3">
+    <h1>Study</h1>
+    <p class="border-b inview-from-the-left"></p>
+    <div class="icons">
+      <i :class="item.path" v-for="item in deviconNomal" :key="item.id">
+      <p class="study-since inview-from-the-bottom">{{ `since${item.since}` }}</p>
+      </i>
+    </div>
+    <div class="icons-color">
+      <i :class="item.path" v-for="item in deviconColor" :key="item.id">
+      <p class="study-since inview-from-the-bottom">{{ `since${item.since}` }}</p>
+      </i>
+    </div>
+  </div>
+</script>
+
+<script type="text/x-template" id="made-page">
+  <div class="page4" id="page4">
+    <h1>Made</h1>
+    <p class="border-b inview-from-the-left"></p>
+
+    <div class="made-list">
+
+      <div class="made-item" v-for="item in madeItemData" :key="item.id">
+        <h4 class="item-title">{{ item.title }}</h4>
+        <div class="animation-point">
+          <a :href="item.path" data-lightbox="made-items" :data-title="item.title">
+            <img loading="lazy" :src="item.path">
+          </a>
+          <div class="item-body">
+            <p class="item-text">{{ item.description }}</p>
+            <a class="item-link" :href="item.link" target="_blank">link</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="made-item" v-for="item in madeItemDataMov" :key="item.id">
+        <h4 class="item-title">{{ item.title }}</h4>
+        <div class="animation-point">
+          <video loading="lazy" :src="item.path" :poster="item.imgPath" controls muted></video>
+          <div class="item-body">
+            <p class="item-text">{{ item.description }}</p>
+            <a class="item-link" :href="item.link" target="_blank">link</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</script>
+
+<script type="text/x-template" id="contact-page">
+  <div class="page5" id="page5">
+    <h1>Contact</h1>
+    <p class="border-b inview-from-the-left"></p>
+    <p class="send-message">{{ message }}</p>
+    <p class="border-c inview-delay-too"></p>
+    <form class="" action="index.html" method="post">
+      <input type="text" name="" placeholder="Name">
+      <input type="text" name="" placeholder="E-mail">
+      <textarea name="name" rows="6" cols="80" placeholder="Message"></textarea>
+      <input class="btn btn-primary" type="button" name="" value="送信">
+    </form>
+  </div>
+</script>
+
+
+<!-- javascript処理 -->
+<script>
+
+  var TopPage = {
+    template: '#top-page',
+    data: function() {
+      return {
+        twitterPath: 'https://twitter.com/sukeo_sukeo',
+        gitPath: 'https://github.com/sukeo-stack',
+        blogPath: 'https://kichintodqmsl.wordpress.com',
+        qiitaPath: 'https://qiita.com/yusuke4522'
+      }
+    },
+    mounted: function() {
+      setTimeout(() => {
+        document.querySelector('.top-main-message').classList.add('enchant-color-g')
+      }, 3000)
+      setTimeout(() => {
+        document.querySelector('.convery-message').classList.add('enchant-color')
+      }, 4000)
+    }
+  }
+
+  var ProfilePage = {
+    template: '#profile-page',
+    data: function() {
+      return {
+        profiles: {
+          from: ' 岐阜',
+          message: `
+          こんにちは！ポートフォリオをご覧頂きありがとうございます！
+          プログラミングを０から独学で学習。
+          コードからモノを生み出す事に楽しさを見出し、
+          今後も極めるべく日々成長中。
+          デザインも勉強中です。
+          `,
+          favoriteWord: ` 今の自分が残りの人生で一番若い`
+        }
+      }
+    },
+    methods: {
+      rand: function(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min
+      }
+    },
+    mounted: function() {
+      setTimeout(() => {
+        document.querySelector('.face').classList.add('enchant-shadow')
+        document.querySelector('.names').classList.add('enchant-color-small')
+      }, 1800)
+    }
+  }
+
+
+  var StudyPage = {
+    template: '#study-page',
+    data: function() {
+      return {
+        // メインスキルは８個まで（スマホサイズの一画面に収めるため）
+        deviconNomal: [
+          {id: 1, path: 'devicon-html5-plain-wordmark', since: '2019.12'},
+          {id: 2, path: 'devicon-css3-plain-wordmark', since: '2019.12'},
+          {id: 3, path: 'devicon-javascript-plain', since: '2020.02'},
+          {id: 4, path: 'devicon-jquery-plain-wordmark', since: '2020.02'},
+          {id: 5, path: 'devicon-nodejs-plain-wordmark', since: '2020.06'},
+          {id: 6, path: 'devicon-express-original-wordmark', since: '2020.06'},
+          {id: 7, path: 'devicon-mongodb-plain-wordmark', since: '2020.06'},
+          {id: 8, path: 'devicon-vuejs-plain-wordmark', since: '2020.07'}
+        ],
+        deviconColor: [
+          {id: 100, path: 'devicon-html5-plain-wordmark colored', since: '2019.12'},
+          {id: 102, path: 'devicon-css3-plain-wordmark colored', since: '2019.12'},
+          {id: 105, path: 'devicon-javascript-plain colored', since: '2020.02'},
+          {id: 106, path: 'devicon-jquery-plain-wordmark colored', since: '2020.02'},
+          {id: 107, path: 'devicon-nodejs-plain-wordmark colored', since: '2020.06'},
+          {id: 108, path: 'devicon-express-original-wordmark colored', since: '2020.06'},
+          {id: 109, path: 'devicon-mongodb-plain-wordmark colored', since: '2020.06'},
+          {id: 110, path: 'devicon-vuejs-plain-wordmark colored', since: '2020.07'}
+        ],
+        // 追加スキルはここに記述（画面サイズ５００px以上のときに追加されます）
+        deviconOtherNomal: [
+          {id: 201, path: 'devicon-sass-original', since: '2020.02'}
+        ],
+        deviconOtherColor: [
+          {id: 202, path: 'devicon-sass-original colored', since: '2020.02'}
+        ]
+      }
+    },
+    methods: {
+      rand: function(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min
+      }
+    },
+    created: function() {
+      if (screen.width >= 500) {
+        console.log('500以上です');
+        this.deviconOtherNomal.forEach(item => {
+          this.deviconNomal.push(item)
+        })
+        this.deviconOtherColor.forEach(item => {
+          this.deviconColor.push(item)
+        })
+      }
+    },
+    mounted: function() {
+      const els = document.querySelectorAll('[class^=devicon-]')
+      els.forEach(el => {
+        el.style.transform = `translate(${this.rand(-100, 100)}%, ${this.rand(-100, 100)}%)`
+        el.classList.add('icon-move')
+        setInterval(() => {
+          el.style.zIndex = this.rand(-1, 1)
+        }, this.rand(4000, 8000))
+      })
+    }
+  }
+
+
+  var madeItemData = [
+    {
+      id: 1,
+      path: './assets/image-nest.png',
+      title: '模写サイト①',
+      link: 'https://sukeo-stack.github.io/NESTcafe-copysite/NESTcafe/cafe.html',
+      // './mades/NESTcafe/cafe.html'
+      description: `
+      学習開始２ヶ月目、始めて最後まで作りきれた模写サイトです。ようやくHTMLタグがスッと出てきて模写が進むようになった頃でした。floatやclearfixの理解がうっすらと。
+      `
+    },
+    {
+      id: 2,
+      path: './assets/image-designleaker.png',
+      title: '模写サイト②',
+      link: 'https://sukeo-stack.github.io/DsignLeaker-copysite/DsignLeaker/index.html',
+      // './mades/DsignLeaker/index.html'
+      description: `
+      学習開始３ヶ月目、float、clearfixの動きを完全に掴みレイアウトが組めるようになる。親と子、inlineとblock。点と点が繋がり始め、flexboxに興味が湧く。
+      `
+    },
+    {
+      id: 3,
+      path: './assets/image-kibiru.png',
+      title: '模写サイト③',
+      link: 'https://sukeo-stack.github.io/kibiru_cafe-copysite/kibiru_cafe/index.html',
+      // './mades/kibiru_cafe/index.html',
+      description: `
+      学習開始３ヶ月目、flexboxを学ぶ際に作成したサイトです。emmetの理解と併せて模写スピードが一段回アップした感覚を得た事を覚えています。
+      `
+    },
+    {
+      id: 4,
+      path: './assets/image-isara.png',
+      title: '模写サイト④',
+      link: 'https://sukeo-stack.github.io/iSara-copysite/iSara/index.html',
+      // './mades/iSara/index.html',
+      description: `
+      学習開始３ヶ月目、flexboxの学習を終えたあとに着手。ボリュームがあるページなので日々夢中になってコーディングを進めていました。これまで学んだことの集大成的な作業となりました。レスポンシブデザインに興味が湧く。
+      `
+    },
+    {
+      id: 5,
+      path: './assets/image-airbnb.png',
+      title: '模写サイト⑤',
+      link: 'https://sukeo-stack.github.io/airbnb-copysite/airbnb/index.html',
+      // './mades/airbnb/index.html',
+      description: `
+      学習開始３ヶ月目終盤、HTMLでの枠組みつくりは２時間で完成。分からない知識が明確になり、ググり力の明らかな向上を実感。メディアクエリをインプットしながら、６日間でレスポンシブまで完成。
+      `
+    },
+    {
+      id: 6,
+      path: './assets/portfolio.png',
+      title: 'ポートフォリオサイト',
+      link: 'https://sukeo-stack.github.io/portfolio/fight_portfolio/index.html',
+      description: `
+      プログラミング学習開始８ヶ月目でようやく形にできたマイページです。
+      vue.jsの学習を兼ねて作成しました。掲載の制作物はgithubにアップロードしています。
+      `
+    }
+  ]
+
+  var madeItemDataMov = [
+    {
+      id: 101,
+      path: 'https://sukeo-stack.github.io/original-browsgame-movie-1/made1.mov',
+      // './mades/made1.mov',
+      title: 'ブラウザゲーム①',
+      link: 'https://sukeo-stack.github.io/js_game_learning/',
+      description: `
+      ドットインストール等で一ヶ月のインプット後、javascriptを用いてゼロからつくったゲームです。完成までは２週間ほどでした。動作するゲームが作れたことに、感動したことを覚えています。
+      `,
+      imgPath: 'assets/made1-image1.png'
+    },
+    {
+      id: 102,
+      path: 'https://sukeo-stack.github.io/original-browsgame-movie-2/made2.mov',
+      // './mades/made2.mov',
+      title: 'ブラウザゲーム②',
+      link: 'https://sukeo-stack.github.io/js_game_practice_2/',
+      description: `
+      小学２年生の娘の掛け算学習用に作成。各画面をclass構文を用いての管理にチャレンジ。かなりコードになり、エラーとの戦い方を学びました。冗長なコーディング内容となっていますが、ある程度javascriptの基本的な動きを理解するとともに、DOMの概念の理解や、最初の設計の大切さ、リファクタリングの重要性を学びました。サーバーやPCの仕組み自体に興味が湧く。
+      `,
+      imgPath: 'assets/made2_image5_battle.png'
+    }
+  ]
+
+  var MadePage = {
+    template: '#made-page',
+    data: function() {
+      return {
+        madeItemData: madeItemData,
+        madeItemDataMov: madeItemDataMov,
+        visible: false
+      }
+    },
+    methods: {
+      fadinItems: function() {
+        const items = document.querySelectorAll('.animation-point')
+        const cb = function(entries, observer) {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              console.log('はいった');
+              console.log(entry.target);
+              entry.target.classList.add('inview')
+              entry.target.classList.remove('outview')
+            } else {
+              console.log('でた');
+              entry.target.classList.add('outview')
+              entry.target.classList.remove('inview')
+            }
+          })
+        }
+        const options = {
+          root: null,
+          rootMargin: '-200px 0px -100px 0px',
+          threshold: 0
+        }
+        const io = new IntersectionObserver(cb, options)
+        items.forEach(item => {
+          io.observe(item)
+        })
+      },
+      animationChars: function() {
+        const els = document.querySelectorAll('.item-title')
+        els.forEach(el => {
+          console.log(el.innerHTML.trim().split(""))
+        })
+      }
+    },
+    mounted: function() {
+      this.fadinItems()
+    }
+  }
+
+
+  var ContactPage = {
+    template: '#contact-page',
+    data: function() {
+      return {
+        message: `
+        最後までご覧頂きありがとうございました。
+        まだまだ勉強中の身ですが、お役に立てることがあればぜひお手伝いさせてください!
+        `
+      }
+    },
+    mounted: function() {
+      setTimeout(() => {
+        document.querySelector('.btn').classList.add('enchant-shadow-page5')
+      }, 1500)
+    }
+  }
+
+  var router = new VueRouter({
+    routes: [
+      {
+        path: '/',
+        component: TopPage
+      },
+      {
+        path: '/profile',
+        component: ProfilePage
+      },
+      {
+        path: '/study',
+        component: StudyPage
+      },
+      {
+        path: '/made',
+        component: MadePage
+      },
+      {
+        path: '/contact',
+        component: ContactPage
+      }
+    ]
+  });
+
+
+
+
+  var app = new Vue({
+    // data: function() {
+    //   return {
+    //     animationClass: 'bounceOutLeft'
+    //   }
+    // },
+    // computed: {
+    //   activeClass: function() {
+    //     return this.animationClass + ' animated'
+    //   }
+    // },
+    router: router
+  }).$mount('#app')
+
+</script>
+</html>
