@@ -285,7 +285,8 @@
       }
     },
     created: function() {
-      if (screen.width >= 500) {
+      console.log(innerWidth);
+      if (innerWidth >= 500) {
         console.log('500以上です');
         this.deviconOtherNomal.forEach(item => {
           this.deviconNomal.push(item)
@@ -363,7 +364,7 @@
       id: 6,
       path: './assets/portfolio.png',
       title: 'ポートフォリオサイト',
-      link: 'https://sukeo-sukeo.github.io/my-portfolio/',
+      link: 'https://sukeo-sukeo.github.io/portfolio/',
       description: `
       プログラミング学習開始８ヶ月目でようやく形にできたマイページです。
       vue.jsの学習を兼ねて作成しました。掲載の制作物はgithubにアップロードしています。
@@ -411,12 +412,9 @@
         const cb = function(entries, observer) {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
-              console.log('はいった');
-              console.log(entry.target);
               entry.target.classList.add('inview')
               entry.target.classList.remove('outview')
             } else {
-              console.log('でた');
               entry.target.classList.add('outview')
               entry.target.classList.remove('inview')
             }
@@ -432,10 +430,10 @@
           io.observe(item)
         })
       },
-      animationChars: function() {
-        const els = document.querySelectorAll('.item-title')
-        els.forEach(el => {
-          console.log(el.innerHTML.trim().split(""))
+      opacityOne: function() {
+        const items = document.querySelectorAll('.animation-point')
+        items.forEach(item => {
+          item.style.opacity = 1;
         })
       }
     },
