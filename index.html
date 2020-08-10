@@ -189,7 +189,7 @@
     <p class="border-c inview-delay-too"></p>
     <form class="" action="index.html" method="post">
       <textarea name="name" rows="10" cols="80" placeholder="Message" v-model="sendMessage"></textarea>
-      <button v-on:click="AddMessage" class="btn btn-primary"><i class="devicon-twitter-plain">Message @sukeo_sukeo</i></button>
+      <button v-on:click="AddMessage" class="btn btn-primary"><i class="devicon-twitter-plain">{{ btnText }}</i></button>
       </a>
     </form>
 
@@ -460,6 +460,7 @@
         最後までご覧頂きありがとうございました。
         まだまだ勉強中の身ですが、お役に立てることがあればぜひお手伝いさせてください!
         `,
+        btnText: `send message`,
         sendMessage: ``,
         twitterDmURL: `https://twitter.com/messages/compose?recipient_id=987213746056474624&text=`
       }
