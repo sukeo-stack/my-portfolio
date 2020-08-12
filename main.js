@@ -14,6 +14,15 @@ const animationClass = {
   ]
 }
 
+const setNavPadding = () => {
+  const navPading = outerHeight - innerHeight
+  const el = document.querySelector('.navbar')
+  console.log(navPading);
+  el.style.paddingBottom = navPading
+}
+setNavPadding()
+
+
 const TopPage = {
   template: '#top-page',
   data: function() {
@@ -24,7 +33,8 @@ const TopPage = {
   },
   methods: {
     animeA: function() {
-      document.querySelector('.top-main-message').classList.add('enchant-color-g')
+      document.querySelector('.message-one').classList.add('enchant-color-g')
+      document.querySelector('.message-two').classList.add('enchant-color-g')
     },
     animeB: function() {
       document.querySelector('.convery-message').classList.add('enchant-color')
