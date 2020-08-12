@@ -32,8 +32,9 @@ const TopPage = {
       document.querySelector('.convery-message').classList.add('enchant-color')
     },
     getHeight: function() {
-      document.querySelector('.navbar').style.paddingBottom = this.navPadding
-      console.log(this.navPadding);
+      if (this.navPadding === 0) {
+        document.querySelector('.navbar').style.paddingBottom = '30px'
+      }
     }
   },
   created: function() {
