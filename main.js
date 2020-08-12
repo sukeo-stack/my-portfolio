@@ -14,21 +14,13 @@ const animationClass = {
   ]
 }
 
-const setNavPadding = () => {
-  const navPading = outerHeight - innerHeight
-  const el = document.querySelector('.navbar')
-  console.log(navPading);
-  el.style.paddingBottom = navPading
-}
-setNavPadding()
-
-
 const TopPage = {
   template: '#top-page',
   data: function() {
     return {
       snsIcons: snsIcons,
-      anime: animationClass
+      anime: animationClass,
+      navPadding: null
     }
   },
   methods: {
@@ -38,11 +30,29 @@ const TopPage = {
     },
     animeB: function() {
       document.querySelector('.convery-message').classList.add('enchant-color')
+    },
+    getHeight: function() {
+      document.querySelector('.navbar').style.paddingBottom = this.navPadding
+      console.log(this.navPadding);
     }
   },
+  created: function() {
+    this.navPadding = outerHeight - innerHeight
+  },
   mounted: function() {
-    setTimeout(() => this.animeA(), 3000)
-    setTimeout(() => this.animeB(), 4000)
+    setTimeout(() => {
+      try {
+        this.animeA()
+      } catch(e) {
+        console.error();
+      }}, 3000)
+    setTimeout(() => {
+      try {
+        this.animeB()
+      } catch(e) {
+        console.error();
+      }}, 4000)
+    this.getHeight()
   }
 }
 
