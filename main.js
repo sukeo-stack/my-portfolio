@@ -20,7 +20,7 @@ const TopPage = {
     return {
       snsIcons: snsIcons,
       anime: animationClass,
-      navPadding: null
+      viewHeight: null
     }
   },
   methods: {
@@ -31,14 +31,14 @@ const TopPage = {
     animeB: function() {
       document.querySelector('.convery-message').classList.add('enchant-color')
     },
-    getHeight: function() {
-      if (this.navPadding === 0) {
+    getNavPaddingBottom: function() {
+      if (this.viewHeight === 0) {
         document.querySelector('.navbar').style.paddingBottom = '30px'
       }
     }
   },
   created: function() {
-    this.navPadding = outerHeight - innerHeight
+    this.viewHeight = outerHeight - innerHeight
   },
   mounted: function() {
     setTimeout(() => {
@@ -53,7 +53,7 @@ const TopPage = {
       } catch(e) {
         console.error();
       }}, 4000)
-    this.getHeight()
+    this.getNavPaddingBottom()
   }
 }
 
