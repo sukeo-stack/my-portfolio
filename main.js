@@ -1,35 +1,28 @@
-const animationClass = {
-  left: [
-    'inview-from-the-left'
-  ],
-  right: [
-
-  ],
-  top: [
-
-  ],
-  bottom: [
-    'inview-from-the-bottom',
-    'inview-from-the-bottom-delay',
-  ]
-}
-
 const TopPage = {
   template: '#top-page',
   data: function() {
     return {
       snsIcons: snsIcons,
       anime: animationClass,
-      viewHeight: null
+      viewHeight: null,
+      isActiveA: false,
+      isAcitveB: false
     }
   },
   methods: {
-    animeA: function() {
-      document.querySelector('.message-one').classList.add('enchant-color-g')
-      document.querySelector('.message-two').classList.add('enchant-color-g')
-    },
-    animeB: function() {
-      document.querySelector('.convery-message').classList.add('enchant-color')
+    openingAnimation: function() {
+      setTimeout(() => {
+        try {
+          this.isActiveA = true
+        } catch(e) {
+          console.error();
+        }}, 3000)
+      setTimeout(() => {
+        try {
+          this.isAcitveB = true
+        } catch(e) {
+          console.error();
+        }}, 4000)
     },
     getNavPaddingBottom: function() {
       if (this.viewHeight === 0) {
@@ -41,18 +34,7 @@ const TopPage = {
     this.viewHeight = outerHeight - innerHeight
   },
   mounted: function() {
-    setTimeout(() => {
-      try {
-        this.animeA()
-      } catch(e) {
-        console.error();
-      }}, 3000)
-    setTimeout(() => {
-      try {
-        this.animeB()
-      } catch(e) {
-        console.error();
-      }}, 4000)
+    this.openingAnimation()
     this.getNavPaddingBottom()
   }
 }
@@ -61,31 +43,13 @@ const ProfilePage = {
   template: '#profile-page',
   data: function() {
     return {
-      profiles: {
-        from: ' 岐阜',
-        message: `
-        こんにちは！ポートフォリオをご覧頂きありがとうございます！
-        プログラミングを０から独学で学習。
-        コードからモノを生み出す事に楽しさを見出し、
-        今後も極めるべく日々成長中。
-        デザインも勉強中です。
-        `,
-        favoriteWord: ` 今の自分が残りの人生で一番若い`,
-      },
-      anime: animationClass
-    }
-  },
-  methods: {
-    rand: function(min, max) {
-      return Math.floor(Math.random() * (max - min + 1)) + min
-    },
-    animeA: function() {
-      document.querySelector('.face').classList.add('enchant-shadow')
-      document.querySelector('.names').classList.add('enchant-color-small')
+      profiles: profileData,
+      anime: animationClass,
+      isActive: false
     }
   },
   mounted: function() {
-    setTimeout(() => this.animeA(), 1800)
+    setTimeout(() => this.isActive = true , 1800)
   }
 }
 
@@ -107,6 +71,16 @@ const StudyPage = {
   methods: {
     rand: function(min, max) {
       return Math.floor(Math.random() * (max - min + 1)) + min
+    },
+    openingAnimation: function() {
+      const els = document.querySelectorAll('[class^=devicon-]')
+      els.forEach(el => {
+        el.style.transform = `translate(${this.rand(-100, 100)}%, ${this.rand(-100, 100)}%)`
+        el.classList.add('icon-move')
+        setInterval(() => {
+          el.style.zIndex = this.rand(-1, 1)
+        }, this.rand(4000, 8000))
+      })
     }
   },
   created: function() {
@@ -120,14 +94,7 @@ const StudyPage = {
     }
   },
   mounted: function() {
-    const els = document.querySelectorAll('[class^=devicon-]')
-    els.forEach(el => {
-      el.style.transform = `translate(${this.rand(-100, 100)}%, ${this.rand(-100, 100)}%)`
-      el.classList.add('icon-move')
-      setInterval(() => {
-        el.style.zIndex = this.rand(-1, 1)
-      }, this.rand(4000, 8000))
-    })
+    this.openingAnimation()
   }
 }
 
@@ -182,27 +149,22 @@ const ContactPage = {
   template: '#contact-page',
   data: function() {
     return {
-      message: `
-      最後までご覧頂きありがとうございました。
-      まだまだ勉強中の身ですが、お役に立てることがあればぜひお手伝いさせてください!
-      `,
+      message: lastMessage,
+      twitterDmURL: twitterDmURL,
       btnText: `send message`,
       sendMessage: ``,
-      twitterDmURL: `https://twitter.com/messages/compose?recipient_id=987213746056474624&text=`,
-      anime: animationClass
+      anime: animationClass,
+      isActive: false
     }
   },
   methods: {
     AddMessage: function() {
       this.twitterDmURL = this.twitterDmURL + encodeURIComponent(this.sendMessage)
       window.open(this.twitterDmURL, '_blank');
-    },
-    animeA: function() {
-      document.querySelector('.btn').classList.add('enchant-shadow-page5')
     }
   },
   mounted: function() {
-    setTimeout(() => this.animeA(), 1500)
+    setTimeout(() => this.isActive = true, 1500)
   }
 }
 

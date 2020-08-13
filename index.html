@@ -52,14 +52,13 @@
 <script src="https://unpkg.com/vue@2.5.17"></script>
 <script src="https://unpkg.com/vue-router@3.0.1"></script>
 
-
 <!-- template トップページ -->
 <script type="text/x-template" id="top-page">
   <div class="page1" id="page1">
     <div class="top-message">
       <div class="top-main-message">
-        <h1 class="message-one" :class="anime.left[0]">Welcome</h1>
-        <h1 class="message-two" :class="anime.bottom[0]">My Page!</h1>
+        <h1 class="message-one" :class="[anime.left[0], {'enchant-color-g': isActiveA}]">Welcome</h1>
+        <h1 class="message-two" :class="[anime.bottom[0], {'enchant-color-g': isActiveA}]">My Page!</h1>
       </div>
       <div class="top-sab-maessage" :class="anime.bottom[1]">
         <h4>I want to be a game creator or</h4>
@@ -71,7 +70,7 @@
         </a>
       </div>
       <p class="copylight" :class="anime.bottom[1]">&copy;2020 sukeo</p>
-      <h1 class="convery-message" :class="anime.bottom[1]">I like making things</h1>
+      <h1 class="convery-message" :class="[anime.bottom[1], { 'enchant-color': isAcitveB }]">I like making things</h1>
     </div>
   </div>
 </script>
@@ -81,8 +80,8 @@
   <div class="page2" id="page2">
     <h1>Profile</h1>
     <p class="border-b" :class="anime.left[0]"></p>
-    <img src="./assets/face.jpg" alt="" class="face">
-    <div class="names">
+    <img src="./assets/face.jpg" alt="ゆうすけの顔写真" class="face" :class="{'enchant-shadow' : isActive}">
+    <div class="names" :class="{'enchant-color-small' : isActive}">
       <h2 class="initial">Y</h2>
       <h2 class="name">usuke<br><span>N</span>agaya</h2>
     </div>
@@ -163,7 +162,9 @@
     <p class="border-c inview-delay-too"></p>
     <form class="" action="index.html" method="post">
       <textarea name="name" rows="10" cols="80" placeholder="Message" v-model="sendMessage"></textarea>
-      <button v-on:click="AddMessage" class="btn btn-primary"><i class="devicon-twitter-plain">{{ btnText }}</i></button>
+      <button v-on:click="AddMessage" class="btn btn-primary" :class="{'enchant-shadow-page5' : isActive}">
+        <i class="devicon-twitter-plain">{{ btnText }}</i>
+      </button>
       </a>
     </form>
   </div>

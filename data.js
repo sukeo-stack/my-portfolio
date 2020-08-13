@@ -22,6 +22,18 @@ const snsIcons = [
   }
 ]
 
+const profileData = {
+  from: ' 岐阜',
+  message: `
+  こんにちは！ポートフォリオをご覧頂きありがとうございます！
+  プログラミングを０から独学で学習。
+  コードからモノを生み出す事に楽しさを見出し、
+  今後も極めるべく日々成長中。
+  デザインも勉強中です。
+  `,
+  favoriteWord: ` 今の自分が残りの人生で一番若い`
+}
+
 
 //study-page:学んだスキルのアイコンデータを記述 {id:path:since}
 //Nomalとcalorで対に記述
@@ -143,3 +155,28 @@ const madeItemDataMov = [
     imgPath: 'assets/made2_image5_battle.png'
   }
 ]
+
+//contactPageのデータ
+const lastMessage = `
+最後までご覧頂きありがとうございました。
+まだまだ勉強中の身ですが、お役に立てることがあればぜひお手伝いさせてください!
+`
+const twitterDmURL = `https://twitter.com/messages/compose?recipient_id=987213746056474624&text=`
+
+
+//cssアニメーションクラスの整理
+const animationClass = {
+  left: [
+    'inview-from-the-left'
+  ],
+  right: [
+
+  ],
+  top: [
+
+  ],
+  bottom: [
+    'inview-from-the-bottom',
+    'inview-from-the-bottom-delay',
+  ]
+}
