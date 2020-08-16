@@ -98,6 +98,7 @@ const StudyPage = {
     }
   },
   created: function() {
+    // this.deviconNomal.includes(this.deviconOtherNomal)
     if (innerWidth >= 500) {
       this.deviconOtherNomal.forEach(item => {
         this.deviconNomal.push(item)
@@ -235,6 +236,9 @@ Vue.component('shatter', {
         this.classObject = 'shatter-close'
       }
     }
+  },
+  mounted: function() {
+
   }
 })
 new Vue({ el: '#shatter-menue' })

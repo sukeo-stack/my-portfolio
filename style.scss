@@ -29,6 +29,7 @@
 
 //作成中
 .toggle-btn {
+  cursor: pointer;
   opacity: 0;
   width: 70px;
   height: 70px;
@@ -40,7 +41,10 @@
   background: none;
   color: white;
   font-size: 8vw;
-  animation: slidInFromTheLeft .5s ease forwards
+  animation: slidInFromTheLeft .5s ease forwards;
+  @media screen and (min-width: 700px) {
+    display: none;
+  }
 }
 
 .shatter {
@@ -50,11 +54,20 @@
   z-index: 1;
   width: 100%;
   margin-left: -100%;
+  @media screen and (min-width: 700px) {
+    width: 36%;
+    margin-left: 0%;
+    opacity: 0;
+    animation: slidInFromTheLeft .5s ease forwards;
+  }
   .sns-icons {
     padding-left: 5vw;
     opacity: 1;
     display: flex;
     justify-content: center;
+    @media screen and (min-width: 700px) {
+      padding-left: 0vw;
+    }
     span {
       color: white;
       position: absolute;
