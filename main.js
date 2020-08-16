@@ -45,7 +45,7 @@ const TopPage = {
   },
   mounted: function() {
     this.openingAnimation()
-//     this.getNavPaddingBottom()
+    // this.getNavPaddingBottom()
     nonDisplayToggle()
   }
 }
@@ -98,14 +98,19 @@ const StudyPage = {
     }
   },
   created: function() {
-    // this.deviconNomal.includes(this.deviconOtherNomal)
-    if (innerWidth >= 500) {
-      this.deviconOtherNomal.forEach(item => {
-        this.deviconNomal.push(item)
-      })
-      this.deviconOtherColor.forEach(item => {
-        this.deviconColor.push(item)
-      })
+    if (this.deviconNomal.includes(this.deviconOtherNomal[0])) {
+      //lengthを可変長にする！
+      console.log('追加しない');
+      return
+    } else {
+      if (innerWidth >= 500) {
+        this.deviconOtherNomal.forEach(item => {
+          this.deviconNomal.push(item)
+        })
+        this.deviconOtherColor.forEach(item => {
+          this.deviconColor.push(item)
+        })
+      }
     }
   },
   mounted: function() {

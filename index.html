@@ -116,7 +116,7 @@
     <h1>Study</h1>
     <p class="border-b" :class="anime.left[0]"></p>
     <div class="icons">
-      <i :class="item.path" v-for="item in deviconNomal" :key="item.id">
+      <i ref="icon" :class="item.path" v-for="item in deviconNomal" :key="item.id">
       <p class="study-since" :class="anime.bottom[0]">{{ `since${item.since}` }}</p>
       </i>
     </div>
