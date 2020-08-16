@@ -17,17 +17,14 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/konpa/devicon@master/devicon.min.css">
   <!-- <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css"> -->
-  <link rel="stylesheet" href="style.css">
-
+  <link rel="preload" as="style" href="style.css" onload="this.rel='stylesheet'">
+  <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
 </head>
 <body>
-
-  <div id="app">
-    <!-- shatter作成中 -->
-    <nav class="shatter">
-
-    </nav>
-    <!-- shatter作成中ここまで -->
+  <div id="shatter-menue" v-cloak>
+    <shatter></shatter>
+  </div>
+  <div id="app" v-cloak>
     <nav class="navbar navbar-expand  navbar-dark fixed-bottom">
       <router-link to="/" class="nav-text">Top</router-link>
       <router-link to="/profile" class="nav-text">Profile</router-link>
@@ -51,6 +48,20 @@
 
 <script src="https://unpkg.com/vue@2.5.17"></script>
 <script src="https://unpkg.com/vue-router@3.0.1"></script>
+
+<!-- shatterメニュー -->
+<script type="text/x-template" id="shatter">
+  <div>
+  <div class="toggle-btn" v-on:click="shatterToggle">{{ btnMessage }}</div>
+    <div class="shatter" :class="classObject">
+      <div class="sns-icons">
+        <a :href="item.path" target="_blank" v-for="item in snsIcons" :key="item.type" :style="styleObject">
+          <i :class="[item.icon, item.type]"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</script>
 
 <!-- template トップページ -->
 <script type="text/x-template" id="top-page">

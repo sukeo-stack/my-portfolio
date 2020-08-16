@@ -193,6 +193,34 @@ const router = new VueRouter({
   ]
 });
 
+Vue.component('shatter', {
+  template: '#shatter',
+  data: function() {
+    return {
+      snsIcons: snsIcons,
+      isActive: false,
+      btnMessage: '>>',
+      classObject: '',
+      styleObject: {
+        textShadow: '2px 2px 2px white, 2px 2px 30px white',
+        margin: '0px 5px'
+      }
+    }
+  },
+  methods: {
+    shatterToggle: function() {
+      this.isActive = !this.isActive
+      if (this.isActive) {
+        this.btnMessage = '✗'
+        this.classObject = 'shatter-open'
+      } else {
+        this.btnMessage = '>>'
+        this.classObject = 'shatter-close'
+      }
+    }
+  }
+})
+new Vue({ el: '#shatter-menue' })
 
 const app = new Vue({
   router: router
