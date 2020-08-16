@@ -2,6 +2,7 @@
   display: none;
 }
 
+//ナビゲーションバー
 .navbar {
   display: flex;
   justify-content: space-evenly;
@@ -26,8 +27,9 @@
     }
   }
 }
+// ナビゲーションバーここまで
 
-//作成中
+//シャッターメニュー
 .toggle-btn {
   cursor: pointer;
   opacity: 0;
@@ -101,9 +103,7 @@
     margin-left: -100%;
   }
 }
-
-//作成中ここまで
-
+// シャッターメニューここまで
 
 // 共通CSS //
 
@@ -145,6 +145,9 @@ h1 {
   width: 80px;
   margin: 0 auto;
   margin-bottom: 15px;
+  @media screen and (min-height: 700px) {
+    margin-bottom: 5vh;
+  }
 }
 
 .border-c {
@@ -153,8 +156,7 @@ h1 {
 }
 // 共通CSSここまで //
 
-
-
+//各ページのCSS
 .page1 {
   height: 100vh;
   background-image: url(assets/waterfall.jpg);
@@ -448,12 +450,18 @@ h1 {
     margin: 10px auto;
     width: 80%;
     max-width: 600px;
+    @media screen and (min-height: 700px) {
+      margin-top: 5vh;
+    }
   }
 
   textarea {
     margin-bottom: 20px;
     padding-left: 15px;
     padding-top: 10px;
+    @media screen and (min-height: 700px) {
+      height: 40vh;
+    }
   }
   .btn {
     margin-bottom: 20px;
@@ -470,10 +478,11 @@ h1 {
     }
   }
 }
+//各ページのCSSここまで
 
-/////////////////////
-//vueのtransison/////
-/////////////////////
+//////////////////////
+//ページ遷移時のエフェクト//
+//////////////////////
 
 /* 入り始め */
 .v-enter {
@@ -504,7 +513,7 @@ h1 {
 }
 
 /////////////////////
-//animation class///
+//animation class////
 /////////////////////
 
 .enchant-color {
