@@ -1,3 +1,13 @@
+const displayToggle = () => {
+  const el = document.querySelector('#shatter-menue')
+  el.style.display = 'block'
+}
+
+const nonDisplayToggle = () => {
+  const el = document.querySelector('#shatter-menue')
+  el.style.display = 'none';
+}
+
 const TopPage = {
   template: '#top-page',
   data: function() {
@@ -36,6 +46,7 @@ const TopPage = {
   mounted: function() {
     this.openingAnimation()
     this.getNavPaddingBottom()
+    nonDisplayToggle()
   }
 }
 
@@ -49,7 +60,10 @@ const ProfilePage = {
     }
   },
   mounted: function() {
-    setTimeout(() => this.isActive = true , 1800)
+    setTimeout(() => {
+      this.isActive = true
+      displayToggle()
+    }, 1800)
   }
 }
 
@@ -95,6 +109,7 @@ const StudyPage = {
   },
   mounted: function() {
     this.openingAnimation()
+    setTimeout(() => displayToggle(),1800)
   }
 }
 
@@ -141,6 +156,7 @@ const MadePage = {
   },
   mounted: function() {
     this.fadinItems()
+    setTimeout(() => displayToggle(),1800)
   }
 }
 
@@ -165,6 +181,7 @@ const ContactPage = {
   },
   mounted: function() {
     setTimeout(() => this.isActive = true, 1500)
+    setTimeout(() => displayToggle(),1800)
   }
 }
 
