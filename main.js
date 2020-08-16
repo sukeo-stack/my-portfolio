@@ -45,7 +45,7 @@ const TopPage = {
   },
   mounted: function() {
     this.openingAnimation()
-    this.getNavPaddingBottom()
+//     this.getNavPaddingBottom()
     nonDisplayToggle()
   }
 }
