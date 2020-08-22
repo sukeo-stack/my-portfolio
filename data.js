@@ -22,6 +22,8 @@ const snsIcons = [
   }
 ]
 
+const qiitaToken = 'f3e944699be7e1b9890a12cffebe9c7e308daaaf'
+
 const profileData = {
   from: ' 岐阜',
   message: `

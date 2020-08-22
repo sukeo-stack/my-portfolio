@@ -48,6 +48,7 @@
 
 <script src="https://unpkg.com/vue@2.5.17"></script>
 <script src="https://unpkg.com/vue-router@3.0.1"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 <!-- shatterメニュー -->
 <script type="text/x-template" id="shatter">
@@ -66,6 +67,10 @@
 <!-- template トップページ -->
 <script type="text/x-template" id="top-page">
   <div class="page1" id="page1">
+    <ul class="update-info" v-show="isAcitveB">
+      <li>{{ newInfo }}</li>
+      <li><a :href="newInfoUrl" target="_blank">{{ newInfoTitle }}</a></li>
+    </ul>
     <div class="top-message">
       <div class="top-main-message">
         <h1 class="message-one" :class="[anime.left[0], {'enchant-color-g': isActiveA}]">Welcome</h1>

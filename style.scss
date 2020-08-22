@@ -156,8 +156,23 @@ h1 {
 }
 // 共通CSSここまで //
 
-//各ページのCSS
+//各ページのstyle
 .page1 {
+  .update-info {
+    position: absolute;
+    background: radial-gradient(black, transparent);
+    color: gainsboro;
+    font-style: italic;
+    list-style: none;
+    padding-inline-start: 0px;
+    cursor: pointer;
+    li {
+      a {
+        color: gainsboro;
+        text-decoration: none;
+      }
+    }
+  }
   height: 100vh;
   background-image: url(assets/waterfall.jpg);
   background-position: center;

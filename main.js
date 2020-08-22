@@ -14,9 +14,13 @@ const TopPage = {
     return {
       snsIcons: snsIcons,
       anime: animationClass,
-      viewHeight: null,
       isActiveA: false,
-      isAcitveB: false
+      isAcitveB: false,
+      qiitaToken: qiitaToken,
+      newInfo: {},
+      newInfoTitle: {},
+      newInfoUrl: {},
+      saveInfo: {}
     }
   },
   methods: {
@@ -34,18 +38,38 @@ const TopPage = {
           console.error();
         }}, 4000)
     },
-    getNavPaddingBottom: function() {
-      if (this.viewHeight === 0) {
-        document.querySelector('.navbar').style.paddingBottom = '30px'
+    getAPIs: function() {
+      axios
+      .get(`https://qiita.com/api/v2/users/sukeo-sukeo/items`, {
+        headers: {
+          Authorization: `Bearer ${this.qiitaToken}`
+        }
+      })
+      .then(res => {
+        this.newInfo = res.data[0].created_at
+        this.newInfoTitle = res.data[0].title
+        this.newInfoUrl = res.data[0].url
+        this.trimInfoText()
+      })
+    },
+    trimInfoText: function() {
+      const a = this.newInfo.substr(0, 10)
+      this.newInfo = `Qiita updated ${a}`
+      this.newInfoTitle = this.strCounter(this.newInfoTitle)
+    },
+    strCounter: function(tage) {
+      const wordCount = 20
+      if (tage.length > wordCount) {
+        const a = tage.substr(0, wordCount)
+        return a + '...'
       }
     }
   },
   created: function() {
-    this.viewHeight = outerHeight - innerHeight
+    this.getAPIs()
   },
   mounted: function() {
     this.openingAnimation()
-    // this.getNavPaddingBottom()
     nonDisplayToggle()
   }
 }
