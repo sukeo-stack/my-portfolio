@@ -17,6 +17,7 @@ const TopPage = {
       isActiveA: false,
       isAcitveB: false,
       qiitaToken: qiitaToken,
+      infoAll: {},
       newInfo: {},
       newInfoTitle: {},
       newInfoUrl: {},
@@ -46,6 +47,8 @@ const TopPage = {
         }
       })
       .then(res => {
+        this.infoAll = res.data
+        console.log(this.infoAll);
         this.newInfo = res.data[0].created_at
         this.newInfoTitle = res.data[0].title
         this.newInfoUrl = res.data[0].url

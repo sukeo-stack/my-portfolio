@@ -68,8 +68,14 @@
 <script type="text/x-template" id="top-page">
   <div class="page1" id="page1">
     <ul class="update-info" v-show="isAcitveB">
+      <!-- たぶんここでv-for -->
       <li>{{ newInfo }}</li>
-      <li><a :href="newInfoUrl" target="_blank">{{ newInfoTitle }}</a></li>
+      <li>
+        <a :href="newInfoUrl" target="_blank">{{ newInfoTitle }}
+        </a>
+        <span>▼more</span>
+      </li>
+
     </ul>
     <div class="top-message">
       <div class="top-main-message">
