@@ -17,7 +17,7 @@ const snsIcons = [
   },
   {
     type: 'qiita-icon', //css用のclassとbinding
-    path: 'https://qiita.com/yusuke4522',
+    path: 'https://qiita.com/sukeo-sukeo',
     icon: ''
   }
 ]
