@@ -67,16 +67,20 @@
 <!-- template トップページ -->
 <script type="text/x-template" id="top-page">
   <div class="page1" id="page1">
-    <ul class="update-info" v-show="isAcitveB">
-      <!-- たぶんここでv-for -->
-      <li>{{ newInfo }}</li>
-      <li>
-        <a :href="newInfoUrl" target="_blank">{{ newInfoTitle }}
-        </a>
-        <span>▼more</span>
-      </li>
 
+    <!-- Qiita記事の見出しの表示 -->
+    <ul ref="updateInfo" class="update-info" :class="{'ul-move' : isActiveC}"  v-show="isAcitveB">
+      <li class="info-inner" v-for="item in infoAll" :key="item.id">
+        {{ item.updated_at }}<br>
+        <a :href="item.url" target="_blank">
+          {{ item.title }}
+        </a>
+        <hr>
+      </li>
     </ul>
+    <p ref="more" class="more" :class="{'more-move' : isActiveC}" v-show="isAcitveB" v-on:click="moreMove">{{ toggleMessage }}</p>
+    <!-- Qiita記事の見出しの表示 ここまで -->
+
     <div class="top-message">
       <div class="top-main-message">
         <h1 class="message-one" :class="[anime.left[0], {'enchant-color-g': isActiveA}]">Welcome</h1>
@@ -155,7 +159,7 @@
           </a>
           <div class="item-body">
             <p class="item-text">{{ item.description }}</p>
-            <a class="item-link" :href="item.link" target="_blank">link</a>
+            <a class="item-link" :href="item.link" target="_blank">link >></a>
           </div>
         </div>
       </div>
@@ -166,7 +170,7 @@
           <video loading="lazy" :src="item.path" :poster="item.imgPath" controls muted></video>
           <div class="item-body">
             <p class="item-text">{{ item.description }}</p>
-            <a class="item-link" :href="item.link" target="_blank">link</a>
+            <a class="item-link" :href="item.link" target="_blank">link >></a>
           </div>
         </div>
       </div>

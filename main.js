@@ -16,12 +16,10 @@ const TopPage = {
       anime: animationClass,
       isActiveA: false,
       isAcitveB: false,
+      isActiveC: false,
+      toggleMessage: '↻more',
       qiitaToken: qiitaToken,
-      infoAll: {},
-      newInfo: {},
-      newInfoTitle: {},
-      newInfoUrl: {},
-      saveInfo: {}
+      infoAll: {}
     }
   },
   methods: {
@@ -35,9 +33,18 @@ const TopPage = {
       setTimeout(() => {
         try {
           this.isAcitveB = true
+          this.$refs.more.classList.add('fadein-plean');
+          this.$refs.updateInfo.classList.add('fadein-plean');
         } catch(e) {
           console.error();
         }}, 4000)
+      setTimeout(() => {
+        try {
+          this.$refs.more.style.opacity = 1;
+          this.$refs.updateInfo.style.opacity = 1;
+        } catch(e) {
+          console.error();
+        }}, 5000)
     },
     getAPIs: function() {
       axios
@@ -49,22 +56,37 @@ const TopPage = {
       .then(res => {
         this.infoAll = res.data
         console.log(this.infoAll);
-        this.newInfo = res.data[0].created_at
-        this.newInfoTitle = res.data[0].title
-        this.newInfoUrl = res.data[0].url
-        this.trimInfoText()
+        const today = new Date()
+        //日付とタイトルを指定の文字数に加工
+        this.infoAll.forEach((info, i) => {
+          const updateday = new Date(this.infoAll[i].updated_at);
+          //３日前までの投稿記事の日付に「New!」をつける判定
+          if ((today - updateday) / 1000 / 60 / 60 / 24 < 3) {
+          this.infoAll[i].updated_at = this.strCountToCut(info.updated_at, 10) + 'New!'
+          } else {
+            this.infoAll[i].updated_at = this.strCountToCut(info.updated_at, 10)
+          }
+          this.infoAll[i].title = this.strCountToCut(info.title, 20)
+        })
       })
     },
-    trimInfoText: function() {
-      const a = this.newInfo.substr(0, 10)
-      this.newInfo = `Qiita updated ${a}`
-      this.newInfoTitle = this.strCounter(this.newInfoTitle)
-    },
-    strCounter: function(tage) {
-      const wordCount = 20
-      if (tage.length > wordCount) {
-        const a = tage.substr(0, wordCount)
+    strCountToCut: function(tage, count) {
+      if (tage.length > count) {
+        const a = tage.substr(0, count)
         return a + '...'
+      } else {
+        return tage
+      }
+    },
+    moreMove: function() {
+      this.isActiveC = !this.isActiveC
+      console.log(this.isActiveC);
+      if (this.isActiveC) {
+        setTimeout(() => {
+          this.toggleMessage = '✗close'
+        }, 1000)
+      } else {
+        this.toggleMessage = '↻more'
       }
     }
   },
