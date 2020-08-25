@@ -17,6 +17,7 @@ const TopPage = {
       isActiveA: false,
       isAcitveB: false,
       isActiveC: false,
+      classObject: '',
       toggleMessage: '↻more',
       qiitaToken: qiitaToken,
       infoAll: {}
@@ -88,6 +89,16 @@ const TopPage = {
       } else {
         this.toggleMessage = '↻more'
       }
+      // if (this.isActiveC) {
+      //   this.classObject = 'more-move'
+      //   setTimeout(() => {
+      //     this.toggleMessage = '✗close'
+      //   }, 1000)
+      // } else {
+      //   this.classObject = ''
+      //   this.toggleMessage = '↻more'
+      // }
+
     }
   },
   created: function() {
