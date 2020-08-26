@@ -55,23 +55,26 @@ const TopPage = {
         }
       })
       .then(res => {
-        console.log(res);
         this.infoAll = res.data
-        console.log(this.infoAll);
-        const today = new Date()
+        this.qiitaContentsProcessing()
+      })
+    },
+    qiitaContentsProcessing: function() {
+      const today = new Date()
+      this.infoAll.forEach((info, i) => {
         //日付とタイトルを指定の文字数に加工
-        this.infoAll.forEach((info, i) => {
-          const updateday = new Date(this.infoAll[i].updated_at);
-          //３日前までの投稿記事の日付に「New!」をつける判定
-          const day = (today - updateday) / 1000 / 60 / 60 / 24
-          if (day < 3) {
-            // `<span class="badge badge-danger">New!</span>`
-            this.infoAll[i].updated_at = this.strCountToCut(info.updated_at, 10) + 'New!'
-          } else {
-            this.infoAll[i].updated_at = this.strCountToCut(info.updated_at, 10)
-          }
-          this.infoAll[i].title = this.strCountToCut(info.title, 20)
-        })
+        this.infoAll[i].updated_at = this.strCountToCut(info.updated_at, 10)
+        this.infoAll[i].title = this.strCountToCut(info.title, 20)
+        //３日前までの投稿記事にNew!をつけるための判定
+        const updateday = new Date(this.infoAll[i].updated_at);
+        const day = (today - updateday) / 1000 / 60 / 60 / 24
+        if (day < 3) {
+          //３日前までのオブジェクトにnewbadeg:trueを追加しv-forでNewが表示されるようにする
+          this.infoAll[i].newBadeg = true
+        } else {
+          //３日以上経過オブジェクトにnewbadeg:falseを追加しv-forでNewが表示されないようにする
+          this.infoAll[i].newBadeg = false
+        }
       })
     },
     strCountToCut: function(tage, count) {

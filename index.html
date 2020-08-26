@@ -71,7 +71,7 @@
     <!-- Qiita記事の見出しの表示 -->
     <ul ref="updateInfo" class="update-info" :class="{'ul-move' : isActiveC}"  v-show="isAcitveB">
       <li class="info-inner" v-for="item in infoAll" :key="item.id">
-        {{ item.updated_at }}<br>
+        {{ item.updated_at }}<span v-show="item.newBadeg" class="badge badge-danger">New!</span><br>
         <a :href="item.url" target="_blank">
           {{ item.title }}
         </a>
