@@ -55,6 +55,7 @@ const TopPage = {
         }
       })
       .then(res => {
+        console.log(res);
         this.infoAll = res.data
         console.log(this.infoAll);
         const today = new Date()
@@ -62,8 +63,10 @@ const TopPage = {
         this.infoAll.forEach((info, i) => {
           const updateday = new Date(this.infoAll[i].updated_at);
           //３日前までの投稿記事の日付に「New!」をつける判定
-          if ((today - updateday) / 1000 / 60 / 60 / 24 < 3) {
-          this.infoAll[i].updated_at = this.strCountToCut(info.updated_at, 10) + 'New!'
+          const day = (today - updateday) / 1000 / 60 / 60 / 24
+          if (day < 3) {
+            // `<span class="badge badge-danger">New!</span>`
+            this.infoAll[i].updated_at = this.strCountToCut(info.updated_at, 10) + 'New!'
           } else {
             this.infoAll[i].updated_at = this.strCountToCut(info.updated_at, 10)
           }
@@ -81,7 +84,6 @@ const TopPage = {
     },
     moreMove: function() {
       this.isActiveC = !this.isActiveC
-      console.log(this.isActiveC);
       if (this.isActiveC) {
         setTimeout(() => {
           this.toggleMessage = '✗close'
@@ -89,16 +91,6 @@ const TopPage = {
       } else {
         this.toggleMessage = '↻more'
       }
-      // if (this.isActiveC) {
-      //   this.classObject = 'more-move'
-      //   setTimeout(() => {
-      //     this.toggleMessage = '✗close'
-      //   }, 1000)
-      // } else {
-      //   this.classObject = ''
-      //   this.toggleMessage = '↻more'
-      // }
-
     }
   },
   created: function() {
