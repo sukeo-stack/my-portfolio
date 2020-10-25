@@ -130,6 +130,24 @@ const madeItemData = [
     プログラミング学習開始８ヶ月目でようやく形にできたマイページです。
     vue.jsの学習を兼ねて作成しました。掲載の制作物はgithubにアップロードしています。
     `
+  },
+  {
+    id: 7,
+    path: './assets/todo.jpg',
+    title: 'シンプルなTODOアプリ',
+    link: 'https://whispering-temple-91855.herokuapp.com/',
+    description: `
+    ログイン機能ありのシンプルなTODOリストWEBアプリケーションです。サーバーとクライアントの通信の仕方や、データベースのCRUD操作の学習を念頭に制作しました。vue.js、express、mongodbを使用しています。また、シンプルかつ洗練された見た目を作るためCSSフレームワークにvuetifyを使用しました。gitの使用やターミナルコマンドの活用など、この制作を通して非常に多くのことを学ぶことができました。herokuにて公開しています。
+    `
+  },
+  {
+    id: 8,
+    path: './assets/linebot.JPG',
+    title: 'モンハン弱点bot',
+    link: 'https://github.com/sukeo-sukeo/mylinebot',
+    description: `
+    モンスターハンターワールドのモンスター名を投げると弱点が返ってくるLINEbotです。プレイするときに弱点を調べる時間を短縮できると思い制作しました。ユーザーからのリクエストに対してオブジェクトや配列を操作、漏れなく適切なレスポンスを返します。herokuにて稼働中。QRコードからLINE友達登録にて使用可能です！
+    `
   }
 ]
 
