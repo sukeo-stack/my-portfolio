@@ -73,83 +73,94 @@ const deviconOtherColor = [
 const madeItemData = [
   {
     id: 1,
-    path: './assets/image-nest.png',
-    title: '模写サイト①',
-    link: 'https://sukeo-sukeo.github.io/NESTcafe-copysite/NESTcafe/cafe.html',
+    path: "./assets/image-nest.png",
+    title: "模写サイト①",
+    link: "https://sukeo-sukeo.github.io/NESTcafe-copysite/NESTcafe/cafe.html",
     // './mades/NESTcafe/cafe.html'
     description: `
     学習開始２ヶ月目、始めて最後まで作りきれた模写サイトです。ようやくHTMLタグがスッと出てきて模写が進むようになった頃でした。floatやclearfixの理解がうっすらと。
-    `
+    `,
   },
   {
     id: 2,
-    path: './assets/image-designleaker.png',
-    title: '模写サイト②',
-    link: 'https://sukeo-sukeo.github.io/DsignLeaker-copysite/DsignLeaker/index.html',
+    path: "./assets/image-designleaker.png",
+    title: "模写サイト②",
+    link:
+      "https://sukeo-sukeo.github.io/DsignLeaker-copysite/DsignLeaker/index.html",
     // './mades/DsignLeaker/index.html'
     description: `
     学習開始３ヶ月目、float、clearfixの動きを完全に掴みレイアウトが組めるようになる。親と子、inlineとblock。点と点が繋がり始め、flexboxに興味が湧く。
-    `
+    `,
   },
   {
     id: 3,
-    path: './assets/image-kibiru.png',
-    title: '模写サイト③',
-    link: 'https://sukeo-sukeo.github.io/kibiru_cafe-copysite/kibiru_cafe/index.html',
+    path: "./assets/image-kibiru.png",
+    title: "模写サイト③",
+    link:
+      "https://sukeo-sukeo.github.io/kibiru_cafe-copysite/kibiru_cafe/index.html",
     // './mades/kibiru_cafe/index.html',
     description: `
     学習開始３ヶ月目、flexboxを学ぶ際に作成したサイトです。emmetの理解と併せて模写スピードが一段回アップした感覚を得た事を覚えています。
-    `
+    `,
   },
   {
     id: 4,
-    path: './assets/image-isara.png',
-    title: '模写サイト④',
-    link: 'https://sukeo-sukeo.github.io/iSara-copysite/iSara/index.html',
+    path: "./assets/image-isara.png",
+    title: "模写サイト④",
+    link: "https://sukeo-sukeo.github.io/iSara-copysite/iSara/index.html",
     // './mades/iSara/index.html',
     description: `
     学習開始３ヶ月目、flexboxの学習を終えたあとに着手。ボリュームがあるページなので日々夢中になってコーディングを進めていました。これまで学んだことの集大成的な作業となりました。レスポンシブデザインに興味が湧く。
-    `
+    `,
   },
   {
     id: 5,
-    path: './assets/image-airbnb.png',
-    title: '模写サイト⑤',
-    link: 'https://sukeo-sukeo.github.io/airbnb-copysite/airbnb/index.html',
+    path: "./assets/image-airbnb.png",
+    title: "模写サイト⑤",
+    link: "https://sukeo-sukeo.github.io/airbnb-copysite/airbnb/index.html",
     // './mades/airbnb/index.html',
     description: `
     学習開始３ヶ月目終盤、HTMLでの枠組みつくりは２時間で完成。分からない知識が明確になり、ググり力の明らかな向上を実感。メディアクエリをインプットしながら、６日間でレスポンシブまで完成。
-    `
+    `,
   },
   {
     id: 6,
-    path: './assets/portfolio.png',
-    title: 'ポートフォリオサイト',
-    link: 'https://sukeo-sukeo.github.io/my-portfolio/',
+    path: "./assets/portfolio.png",
+    title: "ポートフォリオサイト",
+    link: "https://sukeo-sukeo.github.io/my-portfolio/",
     description: `
     プログラミング学習開始８ヶ月目でようやく形にできたマイページです。
     vue.jsの学習を兼ねて作成しました。掲載の制作物はgithubにアップロードしています。
-    `
+    `,
   },
   {
     id: 7,
-    path: './assets/todo.jpg',
-    title: 'シンプルなTODOアプリ',
-    link: 'https://whispering-temple-91855.herokuapp.com/',
+    path: "./assets/todo.jpg",
+    title: "シンプルなTODOアプリ",
+    link: "https://whispering-temple-91855.herokuapp.com/",
     description: `
-    ログイン機能ありのシンプルなTODOリストWEBアプリケーションです。サーバーとクライアントの通信の仕方や、データベースのCRUD操作の学習を念頭に制作しました。vue.js、express、mongodbを使用しています。また、シンプルかつ洗練された見た目を作るためCSSフレームワークにvuetifyを使用しました。gitの使用やターミナルコマンドの活用など、この制作を通して非常に多くのことを学ぶことができました。herokuにて公開しています。
-    `
+    ログイン機能自作。シンプルなTODOリストWEBアプリケーションです。サーバーとクライアントの通信の仕方や、データベースのCRUD操作の学習を念頭に制作しました。vue.js、express、mongodbを使用しています。また、シンプルかつ洗練された見た目を作るためCSSフレームワークにvuetifyを使用しました。gitの使用やターミナルコマンドの活用など、この制作を通して非常に多くのことを学ぶことができました。herokuにて公開しています。
+    `,
   },
   {
     id: 8,
-    path: './assets/linebot.JPG',
-    title: 'モンハン弱点bot',
-    link: 'https://github.com/sukeo-sukeo/mylinebot',
+    path: "./assets/linebot.JPG",
+    title: "モンハン弱点bot",
+    link: "https://github.com/sukeo-sukeo/mylinebot",
     description: `
     モンスターハンターワールドのモンスター名を投げると弱点が返ってくるLINEbotです。プレイするときに弱点を調べる時間を短縮できると思い制作しました。ユーザーからのリクエストに対してオブジェクトや配列を操作、漏れなく適切なレスポンスを返します。herokuにて稼働中。QRコードからLINE友達登録にて使用可能です！
-    `
-  }
-]
+    `,
+  },
+  {
+    id: 9,
+    path: "./assets/flagcollection.JPG",
+    title: "FlagCollectionApp",
+    link: "https://sukeo-sukeo.github.io/FlagCollectionApp/index.html",
+    description: `
+    「leaflet」というグーグルマップに似た地図APIと「REST COUNTRIES」という国データを返してくれるAPIを組み合わせた国旗当てゲームです。国旗のコレクションを楽しみながら世界の国の勉強をしてもらえるアプリです。成績の保存はローカルストレージを使っています。cssフレームワークにはbootstrapを使用しています。また、実際のフロントエンド開発に近づけるためWebpackの導入によるモジュール化を意識して作成しましたが、実際にはファイル分割がうまくいかず次の制作への課題となりました。デザインやアニメーションなどやりたかったですが時間が足りませんので割愛としました。
+    `,
+  },
+];
 
 const madeItemDataMov = [
   {
