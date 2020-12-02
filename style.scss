@@ -207,7 +207,7 @@ h1 {
     }
   }
   height: 100vh;
-  background-image: url(assets/waterfall.jpg);
+  background-image: url(assets/minify/waterfall.jpg);
   background-position: center;
   color: #fff;
   &:before {
@@ -298,7 +298,7 @@ h1 {
 .page2 {
   height: 100vh;
   text-align: center;
-  background-image: url(assets/waterfall.jpg);
+  background-image: url(assets/minify/waterfall.jpg);
   background-position: bottom;
 
   img {
@@ -430,7 +430,7 @@ h1 {
 }
 
 .page4 {
-  background-image: url(assets/beer.jpg);
+  background-image: url(assets/minify/beer.jpg);
   background-position: left;
   background-size: cover;
   h1 {
@@ -479,6 +479,7 @@ h1 {
       .item-body {
         background: radial-gradient(black, transparent);
         margin: auto;
+        width: 300px;
         .item-text {
           color: white;
           background: radial-gradient(black, transparent);
@@ -497,8 +498,6 @@ h1 {
         flex: 1 1 auto;
         padding: 1.25rem;
         text-align: left;
-        .item-text {
-        }
       }
     }
   }
@@ -506,7 +505,7 @@ h1 {
 
 .page5 {
   height: 100vh;
-  background-image: url(./assets/waterfall.jpg);
+  background-image: url(./assets/minify/waterfall.jpg);
   h1 {
     text-align: center;
   }

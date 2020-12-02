@@ -74,6 +74,7 @@ const madeItemData = [
   {
     id: 1,
     path: "./assets/image-nest.png",
+    path2: "./assets/minify/image-nest.png",
     title: "模写サイト①",
     link: "https://sukeo-sukeo.github.io/NESTcafe-copysite/NESTcafe/cafe.html",
     // './mades/NESTcafe/cafe.html'
@@ -84,6 +85,7 @@ const madeItemData = [
   {
     id: 2,
     path: "./assets/image-designleaker.png",
+    path2: "./assets/minify/image-designleaker.png",
     title: "模写サイト②",
     link:
       "https://sukeo-sukeo.github.io/DsignLeaker-copysite/DsignLeaker/index.html",
@@ -95,6 +97,7 @@ const madeItemData = [
   {
     id: 3,
     path: "./assets/image-kibiru.png",
+    path2: "./assets/minify/image-kibiru.png",
     title: "模写サイト③",
     link:
       "https://sukeo-sukeo.github.io/kibiru_cafe-copysite/kibiru_cafe/index.html",
@@ -106,6 +109,7 @@ const madeItemData = [
   {
     id: 4,
     path: "./assets/image-isara.png",
+    path2: "./assets/minify/image-isara.png",
     title: "模写サイト④",
     link: "https://sukeo-sukeo.github.io/iSara-copysite/iSara/index.html",
     // './mades/iSara/index.html',
@@ -116,6 +120,7 @@ const madeItemData = [
   {
     id: 5,
     path: "./assets/image-airbnb.png",
+    path2: "./assets/minify/image-airbnb.png",
     title: "模写サイト⑤",
     link: "https://sukeo-sukeo.github.io/airbnb-copysite/airbnb/index.html",
     // './mades/airbnb/index.html',
@@ -126,6 +131,7 @@ const madeItemData = [
   {
     id: 6,
     path: "./assets/portfolio.png",
+    path2: "./assets/minify/portfolio.png",
     title: "ポートフォリオサイト",
     link: "https://sukeo-sukeo.github.io/my-portfolio/",
     description: `
@@ -136,6 +142,7 @@ const madeItemData = [
   {
     id: 7,
     path: "./assets/todo.jpg",
+    path2: "./assets/todo.jpg",
     title: "シンプルなTODOアプリ",
     link: "https://whispering-temple-91855.herokuapp.com/",
     description: `
@@ -145,6 +152,7 @@ const madeItemData = [
   {
     id: 8,
     path: "./assets/linebot.JPG",
+    path2: "./assets/linebot.JPG",
     title: "モンハン弱点bot",
     link: "https://github.com/sukeo-sukeo/mylinebot",
     description: `
@@ -154,6 +162,7 @@ const madeItemData = [
   {
     id: 9,
     path: "./assets/flagcollection.JPG",
+    path2: "./assets/flagcollection.JPG",
     title: "FlagCollectionApp",
     link: "https://sukeo-sukeo.github.io/FlagCollectionApp/index.html",
     description: `
@@ -165,27 +174,27 @@ const madeItemData = [
 const madeItemDataMov = [
   {
     id: 101,
-    path: 'https://sukeo-sukeo.github.io/original-browsgame-movie-1/made1.mov',
+    path: "https://sukeo-sukeo.github.io/original-browsgame-movie-1/made1.mov",
     // './mades/made1.mov',
-    title: 'ブラウザゲーム①',
-    link: 'https://sukeo-sukeo.github.io/js_game_learning/',
+    title: "ブラウザゲーム①",
+    link: "https://sukeo-sukeo.github.io/js_game_learning/",
     description: `
     ドットインストール等で一ヶ月のインプット後、javascriptを用いてゼロからつくったゲームです。完成までは２週間ほどでした。動作するゲームが作れたことに、感動したことを覚えています。
     `,
-    imgPath: 'assets/made1-image1.png'
+    imgPath: "assets/minify/made1-image1.png",
   },
   {
     id: 102,
-    path: 'https://sukeo-sukeo.github.io/original-browsgame-movie-2/made2.mov',
+    path: "https://sukeo-sukeo.github.io/original-browsgame-movie-2/made2.mov",
     // './mades/made2.mov',
-    title: 'ブラウザゲーム②',
-    link: 'https://sukeo-sukeo.github.io/js_game_practice_2/',
+    title: "ブラウザゲーム②",
+    link: "https://sukeo-sukeo.github.io/js_game_practice_2/",
     description: `
     小学２年生の娘の掛け算学習用に作成。各画面をclass構文を用いての管理にチャレンジ。かなりコードになり、エラーとの戦い方を学びました。冗長なコーディング内容となっていますが、ある程度javascriptの基本的な動きを理解するとともに、DOMの概念の理解や、最初の設計の大切さ、リファクタリングの重要性を学びました。サーバーやPCの仕組み自体に興味が湧く。
     `,
-    imgPath: 'assets/made2_image5_battle.png'
-  }
-]
+    imgPath: "assets/minify/made2_image5_battle.png",
+  },
+];
 
 //contactPageのデータ
 const lastMessage = `
